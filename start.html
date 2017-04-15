@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>React Fundamentals</title>
+    <style type="text/css">
+        .highlight {
+            background: red;
+        }
+    </style>
+    <script type="text/javascript">
+        function double(arr) {
+            return arr.map(
+                item => item * 2
+            )
+        }
+
+        function add(arr) {
+            let sum = 0;
+            arr.forEach(
+                item => sum += item
+            )
+            return sum;
+        }
+
+        var orgArr = [1, 2, 3, 4];
+
+        console.log(double(orgArr));
+        console.log(add(orgArr));
+
+
+        var isHiglighted = false;
+        function toggleClass(sender) {
+            sender.classList.toggle('highlight');
+            isHiglighted = !isHiglighted;
+            if (isHiglighted)
+                sender.innerHTML = 'Remove Highlight';
+            else
+                sender.innerHTML = 'Add Highlight';
+        }
+
+    </script>
+</head>
+<body>
+<button id="btn" onclick="toggleClass(this)">Push me!</button>
+</body>
+</html>
