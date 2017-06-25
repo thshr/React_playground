@@ -1,3 +1,27 @@
 body {
-    background: green;
+    /*background: green;*/
+}
+
+ul {
+    padding: 0;
+}
+
+li {
+    list-style-type: none;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.statistics {
+    display: flex;
+    justify-content: center;
+}
+
+.statistics li {
+    margin: 10px;
+    font-weight: bold;
+    cursor: pointer;
 }
