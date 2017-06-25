@@ -23,22 +23,13 @@ class App extends React.Component {
     }
 
     render() {
-        var statistics = ['All', 'Economy', 'Military', 'Research'];
-
         return (
-            <ul className="statistics">
-                {statistics.map((stats) => {
-                    return (
-                        <li
-                            className={stats === this.state.selStats ? 'highlight' : ''}
-                            key={stats}
-                            // onClick={() => this.updateSelStats(stats)}
-                            onClick={this.updateSelStats.bind(null, stats)}
-                        >
-                            {stats}
-                        </li>);
-                })}
-            </ul>
+            <div className="container">
+                <Stats
+                    selStats={this.state.selStats}
+                    updateStats={this.updateSelStats}
+                />
+            </div>
         )
     }
 }
