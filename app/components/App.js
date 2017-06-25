@@ -16,31 +16,28 @@ class App extends React.Component {
     }
 
     updateSelStats(stats) {
-        console.log('update ', this);
-        this.setState(function () {
-            return {
-                selStats: stats
-            }
-        });
+        console.log('new stats: ' + stats);
+        this.setState(() => ({
+            selStats: stats
+        }));
     }
 
     render() {
         var statistics = ['All', 'Economy', 'Military', 'Research'];
 
-        console.log('render ', this);
-
         return (
             <ul className="statistics">
-                <p>Selected: {this.state.selStats}</p>
-                {statistics.map(function (stats) {
-                    console.log('map ', this);
+                {statistics.map((stats) => {
                     return (
                         <li
+                            className={stats === this.state.selStats ? 'highlight' : ''}
                             key={stats}
-                            onClick={this.updateSelStats.bind(null, stats)}>
+                            // onClick={() => this.updateSelStats(stats)}
+                            onClick={this.updateSelStats.bind(null, stats)}
+                        >
                             {stats}
                         </li>);
-                }, this)}
+                })}
             </ul>
         )
     }
