@@ -3,16 +3,22 @@
  */
 var React = require('react');
 var Stats = require('./Statistics');
+var api = require('../utils/api');
 
 
 class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            selStats: 'All'
+            selStats: 'All',
+            repos: null
         }
 
         this.updateSelStats = this.updateSelStats.bind(this);
+    }
+
+    componentDidMount(){
+        api.fetchPlayers().then(repos => console.log(repos))
     }
 
     updateSelStats(stats) {
