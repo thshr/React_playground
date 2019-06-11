@@ -10,6 +10,10 @@ li {
     list-style-type: none;
 }
 
+a {
+    
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -28,4 +32,16 @@ li {
 
 .highlight {
     color: red;
+}
+
+.nav {
+    display: flex;
+}
+
+.active {
+    font-weight: bold;
+}
+
+.nav li {
+    margin-right: 15px;
 }

@@ -1,43 +1,20 @@
-/**
- * Created by ths on 25.6.2017..
- */
-var React = require('react');
-var Stats = require('./Statistics');
-var api = require('../utils/api');
+import React,{Component} from 'react';
+import Stats from './Statistics';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
+import Nav from "./Nav";
 
-
-class App extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            selStats: 'All',
-            repos: null
-        }
-
-        this.updateSelStats = this.updateSelStats.bind(this);
-    }
-
-    componentDidMount(){
-        api.fetchPlayers().then(repos => console.log(repos))
-    }
-
-    updateSelStats(stats) {
-        console.log('new stats: ' + stats);
-        this.setState(() => ({
-            selStats: stats
-        }));
-    }
+class App extends Component {
 
     render() {
         return (
-            <div className="container">
-                <Stats
-                    selStats={this.state.selStats}
-                    updateStats={this.updateSelStats}
-                />
-            </div>
+            <Router>
+                <div className="container">
+                    <Nav/>
+                    <Route path='/stats' component={Stats}/>
+                </div>
+            </Router>
         )
     }
 }
 
-module.exports = App;
+export default App;
